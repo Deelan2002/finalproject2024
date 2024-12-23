@@ -1,0 +1,165 @@
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* เพิ่มพื้นหลังนอก container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff 50%, #e07c39 50%); /* สีขาวครึ่งซ้าย และสีส้มครึ่งขวา */
+    
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+
+
+/* โครงหลัก */
+.container {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.676);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ส่วนซ้าย */
+.left-panel {
+    background: linear-gradient(135deg, #D35400, #FFA500);
+    width: 40%;
+    padding: 20px;
+    color: white;
+}
+
+.left-panel {
+    background: linear-gradient(135deg, #D35400, #FFA500);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-panel nav ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.left-panel nav ul li {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.left-panel nav ul li:first-child {
+    font-size: 24px; /* ขนาดตัวอักษรของ 'Welcome!' */
+    margin-bottom: 20px;
+}
+
+.left-panel nav ul li:last-child {
+    font-size: 16px; /* ขนาดตัวอักษรของ 'Please sign in to access the services.' */
+}
+
+/* ส่วนขวา */
+.right-panel {
+    background: white;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 300px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 300px;
+    margin-bottom: 10px; /* ระยะด้านล่าง */
+    margin-top: -50px; /* ขยับขึ้นด้านบน (ใช้ค่าน้อยๆ) */
+}
+
+.input-field {
+    margin: 15px 0;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background: #FFA500;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Lato', sans-serif;
+}
+
+.btn:hover {
+    background: #D35400;
+}
+
+/* จัดกล่อง input ให้มีตำแหน่ง relative */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* สไตล์ไอคอน */
+.icon {
+    position: absolute;
+    left: 10px; /* ตำแหน่งไอคอนด้านซ้าย */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* สีของไอคอน */
+    font-size: 16px; /* ขนาดไอคอน */
+}
+
+/* ปรับแต่ง input ให้ไม่ทับไอคอน */
+.input-container input {
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* เพิ่ม padding ซ้ายให้ไม่ทับไอคอน */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.message-box {
+    position: fixed; /* ทำให้ข้อความลอยอยู่ที่ตำแหน่งนี้ */
+    top: 20px; /* ระยะห่างจากด้านบน */
+    left: 50%; /* เริ่มต้นจากกลางหน้าจอ */
+    transform: translateX(-50%); /* จัดข้อความให้อยู่กลางจริง ๆ */
+    background-color: #f8d7da; /* สีพื้นหลังแดงอ่อน (แจ้งเตือน) */
+    color: #721c24; /* สีข้อความแดงเข้ม */
+    border: 1px solid #f5c6cb; /* เส้นขอบ */
+    border-radius: 5px; /* ทำมุมโค้งมน */
+    padding: 10px 20px; /* ระยะห่างภายใน */
+    text-align: center; /* จัดข้อความตรงกลางแนวนอน */
+    font-family: Arial, sans-serif; /* รูปแบบฟอนต์ */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    z-index: 1000; /* ทำให้ข้อความอยู่ด้านบนสุด */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+}

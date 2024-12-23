@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+
+body {
+    padding-top: 80px;
+    /* ความสูงของ Navbar */
+}
+
+.navbar {
+    background-color: #fcfcfc;
+    /* สีพื้นหลัง */
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาใต้ navbar */
+    margin: 0;
+    /* ลบช่องว่างระหว่าง navbar กับขอบหน้าเว็บ */
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    left: 0;
+    /* ตำแหน่งชิดซ้ายสุด */
+    width: 100%;
+    /* ความกว้างเต็มจอ */
+    z-index: 1000;
+    /* ให้ navbar อยู่เหนือองค์ประกอบอื่น */
+}
+
+.navbar-brand {
+    color: #000000 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+}
+
+/* สไตล์สำหรับ nav-link ปกติ */
+.navbar-nav .nav-link {
+    color: #000000 !important;
+    /* สีข้อความปกติ (ดำ) */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    transition: color 0.5s ease-in-out;
+    /* เอฟเฟกต์เปลี่ยนสีนุ่มนวล */
+}
+
+/* เปลี่ยนสีข้อความและลบเส้นใต้เมื่อ hover */
+.navbar-nav .nav-link:hover {
+    color: #ff6969 !important;
+    /* สีชมพูเมื่อ hover (HotPink) */
+    text-decoration: none;
+    /* ยังคงลบเส้นใต้ */
+}
+
+.navbar-text {
+    color: #000000 !important;
+    font-size: 1rem;
+    margin-left: 1rem;
+    font-style: italic;
+}
+
+.navbar-toggler {
+    border-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+    /* สีของ icon toggle */
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-color: #adb5bd;
+    /* สีเมื่อ hover */
+}
+
+/* ลบจุดจากรายการและขีดเส้นใต้ */
+.navbar-nav {
+    list-style-type: none;
+    /* ลบจุด */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 10px;
+    /* ระยะห่างจากขอบด้านซ้าย */
+    margin-right: 10px;
+    /* ระยะห่างจากขอบด้านขวา */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* ไม่ให้ปุ่มสุดท้ายมีระยะห่าง */
+}
+
+
+.welcome-title {
+    position: relative;
+    /* ให้สามารถขยับตำแหน่งได้ */
+    top: 20px;
+    /* ขยับลงจากด้านบน */
+    text-align: center;
+    /* จัดให้อยู่กลาง */
+}
+
+
+
+/* Footer Base Style */
+.footer {
+    margin-top: 20px;
+    background-color: #0a001af4;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    padding: 20px 50px;
+    /* เพิ่ม Padding ด้านซ้ายและขวา */
+    box-sizing: border-box;
+    /* ไม่ให้ Padding ไปเพิ่มขนาดของ Footer */
+}
+
+/* Footer Content */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+    /* ลดช่องว่างด้านในลงเล็กน้อย และจัดให้อยู่กึ่งกลาง */
+    max-width: 1200px;
+    /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto;
+    /* จัดให้อยู่กึ่งกลางของหน้าจอ */
+    flex-wrap: wrap;
+}
+
+/* เพิ่มการจัดการระยะห่างระหว่าง Quick Links และ Useful Links */
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    /* ลดระยะห่างทั่วๆ ไป */
+}
+
+/* ลบขีดเส้นใต้ของลิงก์ปกติ */
+.footer-section.links a {
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+    color: #ffffff;
+    /* สีตัวอักษรปกติ */
+    transition: color 0.3s ease-in-out;
+    /* เพิ่มเอฟเฟกต์นุ่มนวล */
+}
+
+/* ลบขีดเส้นใต้เมื่อ hover */
+.footer-section.links a:hover {
+    text-decoration: none;
+    /* ยังคงลบขีดเส้นใต้ */
+    color: #ff69b4;
+    /* สีชมพูเมื่อ hover */
+}
+
+
+
+.footer-section:nth-child(1) {
+    margin-right: 50px;
+    /* ลดระยะห่างระหว่าง Quick Links */
+}
+
+.footer-section:nth-child(2) {
+    margin-left: 50px;
+    /* ลดระยะห่างระหว่าง Useful Links */
+}
+
+
+.footer-section ul {
+    list-style: none;
+    /* ลบจุด */
+    padding: 0;
+    /* เอาช่องว่างด้านซ้ายออก */
+    margin: 0;
+    /* เอาช่องว่างด้านบนและล่างออก */
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-section img {
+    width: 200px;
+    /* เพิ่มขนาดให้ใหญ่ขึ้น */
+    height: auto;
+    /* รักษาสัดส่วนความสูง */
+
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding: 10px 0;
+    margin-top: auto;
+    line-height: 1.5;
+    /* จัดระยะห่างบรรทัด */
+    color: #fff;
+    /* สีข้อความ */
+}
+
+.footer-bottom p {
+    margin: 0;
+    /* ลบ Margin ด้านนอกของ <p> */
+    font-size: 0.9rem;
+    /* ปรับขนาดตัวอักษรให้ไม่ใหญ่เกินไป */
+}
+
+.add-profile-btn {
+    position: fixed;
+    /* ใช้ fixed เพื่อให้ปุ่มอยู่มุมขวาล่างของหน้าจอ */
+    bottom: 20px;
+    /* ระยะห่างจากขอบล่าง */
+    right: 20px;
+    /* ระยะห่างจากขอบขวา */
+    z-index: 1000;
+    /* ทำให้ปุ่มลอยอยู่ด้านบน */
+}
+
+.add-profile-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    /* ขนาดปุ่ม */
+    height: 60px;
+    background-color: #28a745;
+    /* สีเขียว */
+    border-radius: 50%;
+    /* รูปทรงวงกลม */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงา */
+    color: #fff;
+    /* สีไอคอน */
+    font-size: 1.5rem;
+    /* ขนาดไอคอน */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    transition: all 0.3s ease;
+}
+
+.add-profile-btn a:hover {
+    background-color: #218838;
+    /* สีปุ่มเมื่อ Hover */
+    transform: scale(1.1);
+    /* ขยายเมื่อ Hover */
+}
+
+
+.profile {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    /* จัดเรียงในแนวตั้ง */
+    align-items: center;
+    /* จัดให้อยู่กึ่งกลาง */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.446);
+    max-width: 900px;
+    margin: 30px auto;
+    /* จัดให้อยู่กึ่งกลางแนวนอน */
+}
+
+.form-header {
+    width: 100%;
+    /* ยืดเต็มความกว้าง */
+    text-align: center;
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    margin-bottom: 20px;
+    /* เพิ่มระยะห่างจากฟอร์ม */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 คอลัมน์เท่าๆ กัน */
+    gap: 150px;
+    /* ระยะห่างระหว่างคอลัมน์ */
+    row-gap: 10px;
+    /* ระยะห่างระหว่างแถว */
+    max-width: 800px;
+    margin: auto;
+    /* กึ่งกลางหน้าจอ */
+    padding: 10px;
+}
+
+.datashow {
+    font-weight: bold !important;
+}
