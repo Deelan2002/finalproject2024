@@ -3,6 +3,7 @@
             display: block;
         }
  </style>
+
 <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link " href="<?php echo $base_url; ?>/advisor/home_advisor.php"">Home</a>
@@ -12,7 +13,7 @@
           About
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#news">News</a></li>
             <li><a class="dropdown-item" href="#">Form Docapproval Request </a></li>
           </ul>
         </li>

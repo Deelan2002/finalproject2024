@@ -95,7 +95,7 @@ $username_account = mysqli_fetch_assoc($query);
         <img src="../image/PHU2.jpg" alt="Phu Xuan University">
     </div>
 
-    <div class="news-container">
+    <div class="news-container" id="news">
         <!-- กล่องแสดงข่าว -->
         <div class="news-box">
             <h2>News</h2>

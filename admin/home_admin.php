@@ -22,58 +22,14 @@ $admin_account = mysqli_fetch_assoc($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+    <link rel="stylesheet" href="../css/style_home_admin.css">
 
-        header {
-            background: linear-gradient(to right, #ff9966, #ff5e62);
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        nav {
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            padding: 5px 10px;
-            background-color: #ff6600;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: #e65c00;
-        }
-
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
-        <h1>Welcome,  <?php echo htmlspecialchars($_SESSION['username_account']); ?>(Admin)</h1>
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username_account']); ?>(Admin)</h1>
     </header>
 
     <nav>
@@ -86,6 +42,30 @@ $admin_account = mysqli_fetch_assoc($query);
     <div class="container">
         <h2>Admin Dashboard</h2>
         <p>Use the navigation menu above to manage accounts.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="../image/software-engineer.png" alt="Icon" class="icon-image">
+            <span>Advisor</span>
+            <button class="action-button">Click</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="../image/online-survey.png" alt="Icon" class="icon-image">
+            <span>Request for approval of important documents</span>
+            <button class="action-button">Click</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="../image/graduated.png" alt="Icon" class="icon-image">
+            <span>Student</span>
+            <button class="action-button" onclick="window.location.href='../admin/admin_show_student.php';">Click</button>
+        </div>
     </div>
 
 </body>
