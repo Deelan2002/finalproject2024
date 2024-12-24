@@ -21,7 +21,6 @@ body {
     display: flex;
     width: 100%;
     max-width: 1200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
 
@@ -159,3 +158,39 @@ h1 {
     color: #e74c3c;
     font-weight: bold;
 }
+
+.search-container {
+    display: flex;
+    align-items: center; /* จัดให้อยู่แนวเดียวกันในแนวตั้ง */
+    gap: 8px; /* ระยะห่างระหว่าง input และปุ่ม */
+    margin-bottom: 20px; /* เพิ่มระยะห่างจากองค์ประกอบด้านล่าง */
+    justify-content: center;
+}
+
+.search-container input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    width: 250px;
+    box-sizing: border-box; /* ป้องกันการขยายเกินขอบ */
+    height: 44px; /* กำหนดความสูงที่สอดคล้องกับปุ่ม */
+}
+
+.search-container button {
+    justify-content: center;
+    align-items: center;
+    background-color: #FF6600;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 44px; /* ความสูงเท่ากับ input */
+    width: 44px; /* ความกว้าง */
+}
+
+.search-container button i {
+    font-size: 18px;
+    color: white;
+}
+
+

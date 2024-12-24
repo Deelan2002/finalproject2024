@@ -12,12 +12,19 @@ if (empty($_SESSION['id_account']) || $_SESSION['role_account'] !== 'admin') {
 // ดึง id_account จาก session
 $id_account = $_SESSION['id_account'];
 
+// ตรวจสอบว่ามีการค้นหาหรือไม่
+$search_query = '';
+if (isset($_GET['search'])) {
+    $search_query = mysqli_real_escape_string($conn, $_GET['search']);
+}
+
 // ดึงข้อมูลนักเรียนทั้งหมดที่มีบทบาทเป็น 'student' จากฐานข้อมูล
 $query_students = mysqli_query($conn, "
     SELECT a.*, ps.* 
     FROM accounts a
     LEFT JOIN profile_students ps ON a.id_account = ps.id_account
-    WHERE a.role_account = 'student'
+    WHERE a.role_account = 'student' 
+    AND (a.username_account LIKE '%$search_query%' OR ps.name_student LIKE '%$search_query%')
 ");
 
 if (!$query_students) {
@@ -33,6 +40,9 @@ if (!$query_students) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Show Students</title>
     <link rel="stylesheet" href="../css/style_admin_show_student.css">
+    <!-- เพิ่ม FontAwesome สำหรับไอคอนค้นหา -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -43,7 +53,7 @@ if (!$query_students) {
             <h2>Admin Dashboard</h2>
             <ul>
                 <li><a href="../admin/home_admin.php">Home Admin</a></li>
-                <li><a href="../admin/admin_create_account.php">Creeate New Account</a></li>
+                <li><a href="../admin/admin_create_account.php">Create New Account</a></li>
                 <li><a href="../admin/admin_manage_accounts.php">Manage Account</a></li>
                 <li><a href="../admin/admin_show_student.php">Student List</a></li>
                 <li><a href="#">Advisor List</a></li>
@@ -54,6 +64,16 @@ if (!$query_students) {
 
         <div class="container">
             <h1>Student List</h1>
+
+            <div class="search-container">
+                <form method="GET" action="admin_show_student.php">
+                    <input type="text" name="search" placeholder="Search by name or ID" value="<?php echo htmlspecialchars($search_query); ?>" />
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
 
             <?php
             if (mysqli_num_rows($query_students) > 0) {
