@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+}
+
+
+body {
+    padding-top: 80px;
+    /* ความสูงของ Navbar */
+}
+
+.navbar {
+    background-color: #fcfcfc;
+    /* สีพื้นหลัง */
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาใต้ navbar */
+    margin: 0;
+    /* ลบช่องว่างระหว่าง navbar กับขอบหน้าเว็บ */
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    left: 0;
+    /* ตำแหน่งชิดซ้ายสุด */
+    width: 100%;
+    /* ความกว้างเต็มจอ */
+    z-index: 1000;
+    /* ให้ navbar อยู่เหนือองค์ประกอบอื่น */
+}
+
+.navbar-brand {
+    color: #000000 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+}
+
+/* สไตล์สำหรับ nav-link ปกติ */
+.navbar-nav .nav-link {
+    color: #000000 !important;
+    /* สีข้อความปกติ (ดำ) */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    transition: color 0.5s ease-in-out;
+    /* เอฟเฟกต์เปลี่ยนสีนุ่มนวล */
+}
+
+/* เปลี่ยนสีข้อความและลบเส้นใต้เมื่อ hover */
+.navbar-nav .nav-link:hover {
+    color: #ff6969 !important;
+    /* สีชมพูเมื่อ hover (HotPink) */
+    text-decoration: none;
+    /* ยังคงลบเส้นใต้ */
+}
+
+.navbar-text {
+    color: #000000 !important;
+    font-size: 1rem;
+    margin-left: 1rem;
+    font-style: italic;
+}
+
+.navbar-toggler {
+    border-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+    /* สีของ icon toggle */
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-color: #adb5bd;
+    /* สีเมื่อ hover */
+}
+
+/* ลบจุดจากรายการและขีดเส้นใต้ */
+.navbar-nav {
+    list-style-type: none;
+    /* ลบจุด */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 10px;
+    /* ระยะห่างจากขอบด้านซ้าย */
+    margin-right: 10px;
+    /* ระยะห่างจากขอบด้านขวา */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* ไม่ให้ปุ่มสุดท้ายมีระยะห่าง */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #706e6e;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff6f00;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    
+}
+
+.allowed a {
+    color: #ff6f00;
+}
+
+.allowed a:hover {
+    color: #e65100;
+}
+
+.not-allowed {
+    color: gray;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+}

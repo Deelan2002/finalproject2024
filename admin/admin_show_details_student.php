@@ -123,7 +123,7 @@ if (!$student) {
                 <li><a href="../admin/admin_create_account.php">Creeate New Account</a></li>
                 <li><a href="../admin/admin_manage_accounts.php">Manage Account</a></li>
                 <li><a href="../admin/admin_show_student.php">Student List</a></li>
-                <li><a href="#">Advisor List</a></li>
+                <li><a href="../admin/admin_show_advisor.php">Advisor List</a></li>
                 <li><a href="#">Form Doc Approval Request</a></li>
                 <li><a href="../logout.php">Logout</a></li>
             </ul>

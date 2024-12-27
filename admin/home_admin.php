@@ -48,7 +48,7 @@ $admin_account = mysqli_fetch_assoc($query);
         <div class="card-content">
             <img src="../image/software-engineer.png" alt="Icon" class="icon-image">
             <span>Advisor</span>
-            <button class="action-button">Click</button>
+            <button class="action-button" onclick="window.location.href='../admin/admin_show_advisor.php';">Click</button>
         </div>
     </div>
 
@@ -65,6 +65,14 @@ $admin_account = mysqli_fetch_assoc($query);
             <img src="../image/graduated.png" alt="Icon" class="icon-image">
             <span>Student</span>
             <button class="action-button" onclick="window.location.href='../admin/admin_show_student.php';">Click</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="../image/graduated.png" alt="Icon" class="icon-image">
+            <span>Company Form</span>
+            <button class="action-button" onclick="window.location.href='../company/company_details.php';">Click</button>
         </div>
     </div>
 

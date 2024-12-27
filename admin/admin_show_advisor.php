@@ -18,16 +18,16 @@ if (isset($_GET['search'])) {
     $search_query = mysqli_real_escape_string($conn, $_GET['search']);
 }
 
-// ดึงข้อมูลนักเรียนทั้งหมดที่มีบทบาทเป็น 'student' จากฐานข้อมูล
-$query_students = mysqli_query($conn, "
-    SELECT a.*, ps.* 
+// ดึงข้อมูลที่มีบทบาทเป็น advisor จากฐานข้อมูล
+$query_advisors = mysqli_query($conn, "
+    SELECT a.*, pa.* 
     FROM accounts a
-    LEFT JOIN profile_students ps ON a.id_account = ps.id_account
-    WHERE a.role_account = 'student' 
-    AND (a.username_account LIKE '%$search_query%' OR ps.name_student LIKE '%$search_query%')
+    LEFT JOIN profile_advisor pa ON a.id_account = pa.id_account
+    WHERE a.role_account = 'advisor' 
+    AND (a.username_account LIKE '%$search_query%' OR pa.name_advisor LIKE '%$search_query%')
 ");
 
-if (!$query_students) {
+if (!$query_advisors) {
     die("Error: " . mysqli_error($conn));  // หากมีข้อผิดพลาดในการดึงข้อมูล
 }
 ?>
@@ -38,11 +38,9 @@ if (!$query_students) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Show Students</title>
-    <link rel="stylesheet" href="../css/style_admin_show_student.css">
-    <!-- เพิ่ม FontAwesome สำหรับไอคอนค้นหา -->
+    <title>Admin - Show Advisors</title>
+    <link rel="stylesheet" href="../css/style_admin_show_advisor.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -63,10 +61,11 @@ if (!$query_students) {
         </div>
 
         <div class="container">
-            <h1>Student List</h1>
+            <h1>Advisor List</h1>
 
+            <!-- Search Form -->
             <div class="search-container">
-                <form method="GET" action="admin_show_student.php">
+                <form method="GET" action="admin_show_advisor.php">
                     <input type="text" name="search" placeholder="Search by name or ID" value="<?php echo htmlspecialchars($search_query); ?>" />
                     <button type="submit">
                         <i class="fas fa-search"></i>
@@ -74,48 +73,48 @@ if (!$query_students) {
                 </form>
             </div>
 
-
             <?php
-            if (mysqli_num_rows($query_students) > 0) {
-                while ($student = mysqli_fetch_assoc($query_students)) {
+            if (mysqli_num_rows($query_advisors) > 0) {
+                while ($advisor = mysqli_fetch_assoc($query_advisors)) {
             ?>
                     <div class="card">
-                        <img src="../uploads/<?php echo !empty($student['profile_image_student']) ? htmlspecialchars($student['profile_image_student']) : 'default.png'; ?>" alt="Student Image">
-                        <div class="student-info">
+                        <img src="../uploads/<?php echo !empty($advisor['profile_advisor']) ? htmlspecialchars($advisor['profile_advisor']) : 'default.png'; ?>" alt="Advisor Image">
+                        <div class="advisor-info">
                             <div>
-                                <label>Student ID</label>
-                                <span><?php echo !empty($student['id_student']) ? htmlspecialchars($student['id_student']) : 'N/A'; ?></span>
+                                <label>Advisor ID</label>
+                                <span><?php echo htmlspecialchars($advisor['id_account']); ?></span>
                             </div>
                             <div>
                                 <label>Name</label>
-                                <span><?php echo !empty($student['name_student']) ? htmlspecialchars($student['name_student']) : htmlspecialchars($student['username_account']); ?></span>
+                                <span><?php echo !empty($advisor['name_advisor']) ? htmlspecialchars($advisor['name_advisor']) : htmlspecialchars($advisor['username_account']); ?></span>
                             </div>
                             <div>
                                 <label>Email</label>
-                                <span><?php echo htmlspecialchars($student['email_account']); ?></span>
+                                <span><?php echo htmlspecialchars($advisor['email_account']); ?></span>
                             </div>
                             <div>
                                 <label>Phone</label>
-                                <span><?php echo !empty($student['number_student']) ? htmlspecialchars($student['number_student']) : 'N/A'; ?></span>
+                                <span><?php echo !empty($advisor['number_advisor']) ? htmlspecialchars($advisor['number_advisor']) : 'N/A'; ?></span>
                             </div>
                             <div>
                                 <label>University</label>
-                                <span><?php echo !empty($student['university_student']) ? htmlspecialchars($student['university_student']) : 'N/A'; ?></span>
+                                <span><?php echo !empty($advisor['university_advisor']) ? htmlspecialchars($advisor['university_advisor']) : 'N/A'; ?></span>
                             </div>
                             <div>
-                                <label>Country</label>
-                                <span><?php echo !empty($student['country_student']) ? htmlspecialchars($student['country_student']) : 'N/A'; ?></span>
+                                <label>Faculty</label>
+                                <span><?php echo !empty($advisor['faculty_advisor']) ? htmlspecialchars($advisor['faculty_advisor']) : 'N/A'; ?></span>
                             </div>
                         </div>
-                        <a href="../admin/admin_show_details_student.php?id=<?php echo $student['id_account']; ?>" class="action-button">Details</a>
+                        <a href="../admin/admin_show_details_advisor.php?id=<?php echo $advisor['id_account']; ?>" class="action-button">Details</a>
                     </div>
             <?php
-                } // end while
+                }
             } else {
-                echo "<p class='no-students'>No students found.</p>";
+                echo "<p class='no-advisors'>No advisors found.</p>";
             }
             ?>
         </div>
+    </div>
 </body>
 
 </html>

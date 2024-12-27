@@ -84,7 +84,7 @@ $username_account = mysqli_fetch_assoc($query);
     </script>
 
 
-    <div class="register-container">
+    <div id="register" class="register-container">
         <div class="tooltip"></div>
         <a href="../student/register_form_skill.php" class="register-button">Register for an international cooperative education program</a>
         <div class="note">You can press the button to go to the registration</div>
@@ -102,7 +102,7 @@ $username_account = mysqli_fetch_assoc($query);
         <img src="../image/PHU2.jpg" alt="Phu Xuan University">
     </div>
 
-    <div class="news-container">
+    <div id="news" class="news-container">
         <!-- กล่องแสดงข่าว -->
         <div class="news-box">
             <h2>News</h2>
