@@ -5,7 +5,6 @@
   font-family: 'Lato', sans-serif;
 }
 
-
 body {
   padding-top: 80px; /* ความสูงของ Navbar */
 }
@@ -74,6 +73,7 @@ body {
 .navbar-nav .nav-item {
   margin-left: 10px; /* ระยะห่างจากขอบด้านซ้าย */
   margin-right: 10px; /* ระยะห่างจากขอบด้านขวา */
+  
 }
 
 .navbar-nav .nav-item:last-child {
@@ -178,212 +178,133 @@ body {
   background-color: #adb5bd !important;
 }
 
-.register-container {
-  text-align: center;
-  position: relative;
-  margin-top: 20px;
-}
-
-.register-container .tooltip {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffd966;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.register-button {
-  display: inline-block;
-  background-color: #d8a028;
-  color: #fff !important;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 15px 30px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.register-button:hover {
-  background-color: #f75a17;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-.note {
-  margin: 20px 0; /* เว้นระยะด้านบนและด้านล่าง 20px */
-  font-size: 14px;
-  color: #555;
-}
 
 .container-image {
   padding: 0 10px;
   margin: 20px 0;
-  display: flex; /* ใช้ Flexbox เพื่อจัดรูปภาพในแนวนอน */
-  justify-content: center; /* เว้นระยะห่างระหว่างรูปภาพ */
-  align-items: center; /* จัดแนวรูปภาพให้อยู่ตรงกลางตามแนวตั้ง */
-  gap: 100px; /* ระยะห่างระหว่างรูปภาพ */
+  display: flex;
+  flex-wrap: wrap; /* ให้รูปขึ้นบรรทัดใหม่เมื่อเต็มพื้นที่ */
+  justify-content: center; /* จัดให้อยู่ตรงกลาง */
+  align-items: center; /* จัดให้อยู่ตรงกลางตามแนวตั้ง */
+  gap: 20px; /* ระยะห่างระหว่างรูปภาพ */
+  max-width: 1200px; /* กำหนดขนาดสูงสุดของ container */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-image img {
-  width: 300px; /* กำหนดขนาดความกว้างให้กับรูปภาพ */
-  height: auto; /* ปรับความสูงอัตโนมัติเพื่อรักษาสัดส่วน */
-  border-radius: 10px; /* ทำให้มุมภาพโค้งมน */
-  object-fit: cover; /* ป้องกันการบิดเบี้ยวของภาพ */
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, filter 0.4s ease-in-out;
 }
 
 .container-image img:hover {
-  transform: scale(1.1); /* ทำให้ขนาดรูปใหญ่ขึ้นเมื่อ hover */
-  opacity: 1; /* ลดความทึบลงเพื่อให้เห็นเอฟเฟกต์ */
+  transform: scale(1.1);
+  opacity: 1;
 }
 
-/* ตกแต่ง container หลัก */
-.news-container {
-  display: flex; /* ทำให้กล่องสองข้างเรียงแนวนอน */
-  justify-content: space-around; /* กระจายช่องว่างระหว่างกล่อง */
-  align-items: flex-start;
-  margin: 20px auto;
-  max-width: 1000px; /* กำหนดความกว้างสูงสุด */
-}
 
-/* ตกแต่งกล่องข่าว */
-.news-box {
-  width: 45%; /* กำหนดความกว้างของแต่ละกล่อง */
-  height: 400px; /* ความยาวของกล่อง */
-  border: 2px solid #000; /* เส้นขอบสีดำ */
-  border-radius: 8px; /* มุมโค้ง */
-  padding: 20px; /* ระยะห่างภายในกล่อง */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เงาใต้กล่อง */
-  background-color: #fff; /* พื้นหลังกล่องสีขาว */
-  text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-  margin: 80px; /* ระยะห่างจากด้านบน */
-  
-  /* ทำให้เนื้อหาอยู่ตรงกลางแนวตั้งและแนวนอน */
-  display: flex;
-  justify-content: center; /* จัดแนวนอนตรงกลาง */
-  align-items: center; /* จัดแนวตั้งตรงกลาง */
-  flex-direction: column; /* จัดเรียงเนื้อหาด้านในเป็นแนวตั้ง */
-}
-
-/* หัวข้อกล่อง */
-.news-box h2 {
-  margin-bottom: 10px;
-  color: #333; /* สีข้อความ */
-  font-size: 1.5rem;
-  text-decoration: underline;
-}
-
-/* เนื้อหาข่าว */
-.content {
-  color: #555;
-  font-size: 1rem;
-}
 
 /* Footer Base Style */
 .footer {
-  background-color: #0a001af4;
+  background-color: #AF2537;
   color: #fff;
   font-family: 'Lato', sans-serif;
-  padding: 20px 50px; /* เพิ่ม Padding ด้านซ้ายและขวา */
-  box-sizing: border-box; /* ไม่ให้ Padding ไปเพิ่มขนาดของ Footer */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  padding-bottom: 10px; /* ลด padding ด้านล่าง */
 }
 
-/* Footer Content */
 .footer-container {
   display: flex;
   justify-content: space-between;
-  padding: 30px 20px; /* ลดช่องว่างด้านในลงเล็กน้อย และจัดให้อยู่กึ่งกลาง */
-  max-width: 1200px; /* กำหนดความกว้างสูงสุด */
-  margin: 0 auto; /* จัดให้อยู่กึ่งกลางของหน้าจอ */
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
 }
 
-/* เพิ่มการจัดการระยะห่างระหว่าง Quick Links และ Useful Links */
 .footer-section {
   flex: 1;
-  margin: 0 20px; /* ลดระยะห่างทั่วๆ ไป */
-}
-
-/* ลบขีดเส้นใต้ของลิงก์ปกติ */
-.footer-section.links a {
-  text-decoration: none; /* ลบขีดเส้นใต้ */
-  color: #ffffff; /* สีตัวอักษรปกติ */
-  transition: color 0.3s ease-in-out; /* เพิ่มเอฟเฟกต์นุ่มนวล */
-}
-
-/* ลบขีดเส้นใต้เมื่อ hover */
-.footer-section.links a:hover {
-  text-decoration: none; /* ยังคงลบขีดเส้นใต้ */
-  color: #ff69b4; /* สีชมพูเมื่อ hover */
-}
-
-
-
-.footer-section:nth-child(1) {
-  margin-right: 50px; /* ลดระยะห่างระหว่าง Quick Links */
-}
-
-.footer-section:nth-child(2) {
-  margin-left: 50px; /* ลดระยะห่างระหว่าง Useful Links */
-}
-
-
-.footer-section ul {
-  list-style: none; /* ลบจุด */
-  padding: 0; /* เอาช่องว่างด้านซ้ายออก */
-  margin: 0; /* เอาช่องว่างด้านบนและล่างออก */
+  min-width: 200px;
+  margin: 0 20px;
 }
 
 .footer-section h4 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .footer-section p {
-  line-height: 1.6;
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.8;
 }
 
 .footer-section a {
   color: #fff;
   text-decoration: none;
-  display: block;
-  margin: 5px 0;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
 }
 
-.footer-section img {
-  width: 200px; /* เพิ่มขนาดให้ใหญ่ขึ้น */
-  height: auto; /* รักษาสัดส่วนความสูง */
-  
+.footer-section a:hover {
+  color: #ff69b4;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ff69b4;
+}
+
+.social-icons {
+  margin-top: 15px;
 }
 
 .social-icons a {
-  display: inline-block;
-  margin-right: 10px;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  transition: transform 0.3s, color 0.3s;
 }
 
+.social-icons a:hover {
+  color: #ff69b4;
+  transform: scale(1.2);
+}
 
 /* Footer Bottom */
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid #444;
-  padding: 10px 0;
-  margin-top: auto;
-  line-height: 1.5; /* จัดระยะห่างบรรทัด */
-  color: #fff; /* สีข้อความ */
+  padding: 5px 0; /* ลด padding ด้านบนและล่าง */
+  margin-top: 10px; /* ลดช่องว่างด้านบน */
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.footer-bottom p {
-  margin: 0; /* ลบ Margin ด้านนอกของ <p> */
-  font-size: 0.9rem; /* ปรับขนาดตัวอักษรให้ไม่ใหญ่เกินไป */
+
+.footer-section.about img {
+  max-width: 250px; /* กำหนดขนาดความกว้างสูงสุด */
+  height: auto; /* รักษาสัดส่วน */
+  display: block; /* บังคับให้อยู่ในรูปแบบ Block */
 }
+
+
 

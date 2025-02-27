@@ -1,0 +1,125 @@
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #6d0019, #a52a2a);
+    padding: 20px;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    list-style: none;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    color: #ff6347;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+/* Container */
+.container {
+    padding: 30px;
+    margin-left: 235px;
+    /* ขยับไปทางขวามากขึ้น (จาก 240px เป็น 280px) */
+    margin-top: 20px;
+    width: calc(100% - 260px);
+    max-width: 1300px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+
+/* หัวข้อ */
+.container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* ปุ่ม */
+.container button {
+    padding: 10px 15px;
+    margin: 10px 5px;
+    font-size: 16px;
+    color: white;
+    background: #af0202; /* ปุ่มสีน้ำเงิน */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.container button:hover {
+    background: #d10909; /* สีเข้มขึ้นเมื่อชี้ */
+    transform: scale(1.05);
+}
+
+/* ตาราง */
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.container th, .container td {
+    border: 2px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.container th {
+    background: #f8f9fa;
+    color: #333;
+    text-align: center;
+}
+
+.container td {
+    background: white;
+    position: relative;
+    text-align: center; /* จัดกึ่งกลางเนื้อหา */
+}
+
+/* เพิ่มเอฟเฟกต์สลับสีแถว */
+.container tbody tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* ปรับสไตล์ textarea */
+.container textarea {
+    width: 100%;
+    resize: vertical;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container td button {
+    display: inline-block;
+    margin: 5px auto;
+}

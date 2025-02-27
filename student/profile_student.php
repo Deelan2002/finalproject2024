@@ -36,27 +36,95 @@ if (!$username_account) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Student</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon.png">
+    <link rel="android-chrome" href="../image/android-chrome-192x192.png">
+    <link rel="android-chrome" href="../image/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png">
+    <link rel="manifest" href="../image/site.webmanifest">
     <link rel="stylesheet" href="../css/style_profile_student.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        body {
+            background: none;
+            /* ปิดภาพพื้นหลังหลัก */
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* สร้างเลเยอร์ภาพพื้นหลัง */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../image/pxu1.jpeg');
+            /* เปลี่ยนเป็นที่อยู่ของภาพ */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(3px);
+            /* ปรับค่าความเบลอ (px) */
+            z-index: -1;
+            /* ให้ภาพอยู่ด้านหลัง */
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            /* ปรับความมืด (0.3 = 30%) */
+            z-index: -1;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../student/home_student.php">CIWE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <?php include('../navbar/navbar_student.php') ?>
-            </div>
-        </div>
-    </nav>
-
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="navbar-brand" href="../student/home_student.php">
+            <img src="../image/logo-pxu.png" alt="SDIC Logo" width="40" height="40"> SDIC
+        </a>
+        <h4>Student Panel</h4>
+        <span class="navbar-text ms-3">
+            Welcome, <?php echo $_SESSION['username_account']; ?>
+        </span>
+        <ul>
+            <li> <a class="nav-link" href="<?php echo $base_url; ?>/student/home_student.php">Home</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/profile_student.php">Profile</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/register_form_skill.php">International Cooperative Education</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/student_view_advisor.php">Advisor</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/job_company.php">Company</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/daily.php">Daily</a></li>
+            <li>
+                <a class="nav-link" href="<?php echo $base_url; ?>/realtime_chat/choose_receiver.php?receiver_id=<?php echo isset($_GET['receiver_id']) ? htmlspecialchars($_GET['receiver_id']) : 0; ?>">
+                    Chat
+                </a>
+            </li>
+            <li> <a class="nav-link" href="<?php echo $base_url; ?>/student/student_reset_password.php">Reset Password</a></li>
+            <li><a href=" <?php echo $base_url; ?>../index.php" onclick="return confirm('Are you sure you want to log out?');"> Logout</a></li>
+        </ul>
+    </div>
 
     <div class="form-container">
         <div class="form-header">
@@ -67,11 +135,11 @@ if (!$username_account) {
 
             <!-- รูปโปรไฟล์ -->
             <div class="mb-3 text-center">
-            <?php if (!empty($username_account['profile_image_student'])): ?>
-                        <img src="../uploads/<?php echo htmlspecialchars($username_account['profile_image_student']); ?>" alt="profile student" class="rounded" width="150" height="150">
-                    <?php else: ?>
-                        <img src="../uploads/default.jpg" alt="Default Profile" class="rounded-circle" width="150" height="150">
-                    <?php endif; ?>
+                <?php if (!empty($username_account['profile_image_student'])): ?>
+                    <img src="../uploads/<?php echo htmlspecialchars($username_account['profile_image_student']); ?>" alt="profile student" class="rounded" width="150" height="150">
+                <?php else: ?>
+                    <img src="../uploads/default.jpg" alt="Default Profile" class="rounded-circle" width="150" height="150">
+                <?php endif; ?>
             </div>
 
             <div class="grid-container">
@@ -171,8 +239,6 @@ if (!$username_account) {
         </form>
 
     </div>
-    <a href="<?php echo $base_url; ?>../index.php" class="btn btn-danger">Logout</a>
-
     <div class="add-profile-btn">
         <a href="../student/form_profile_student.php" class="btn btn-primary">
             <i class="bi bi-plus-circle"></i> <span>+</span>

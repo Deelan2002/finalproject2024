@@ -13,7 +13,7 @@ unset($_SESSION['WP' . 'role_account']);
 session_destroy();
 
 // ส่งผู้ใช้กลับไปที่หน้า login หรือ index
-header("location: {$base_url}../index.php");
+header("location: {$base_url}index.php");
 exit();
 
 ?>

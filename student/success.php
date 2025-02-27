@@ -25,6 +25,13 @@ if (isset($_SESSION['Messager'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Success</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon.png">
+    <link rel="android-chrome"  href="../image/android-chrome-192x192.png">
+    <link rel="android-chrome"  href="../image/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png">
+    <link rel="manifest" href="../image/site.webmanifest">
     <style>
         body {
             font-family: Arial, sans-serif;

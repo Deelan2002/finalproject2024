@@ -24,6 +24,13 @@ $username_account = mysqli_fetch_assoc($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon.png">
+    <link rel="android-chrome" href="../image/android-chrome-192x192.png">
+    <link rel="android-chrome" href="../image/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png">
+    <link rel="manifest" href="../image/site.webmanifest">
     <link rel="stylesheet" href="../css/style_home_advisor.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -40,7 +47,7 @@ $username_account = mysqli_fetch_assoc($query);
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../advisor/home_advisor.php">CIWE</a>
+            <img src="../image/logo-pxu.png" alt="SDIC Logo" width="40" height="40">SDIC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,24 +58,24 @@ $username_account = mysqli_fetch_assoc($query);
     </nav>
 
 
-    <h1 class="welcome-title">Welcome Home!</h1>
+    <h1 class="welcome-title">Student database system for international CWIE</h1>
 
 
     <div class="slideshow">
         <div class="items">
-            <img src="https://cpu-robot.cpu.ac.th/wp-content/uploads/2024/12/p1.jpg" alt="">
+            <img src="https://img.giaoduc.net.vn/1200x630/Uploaded/2025/lwivvpiv/2024_10_11/green-floral-watercolor-welcome-spring-banner-2-7652.png" alt="">
         </div>
         <div class="items">
-            <img src="https://cpu-robot.cpu.ac.th/wp-content/uploads/2024/12/%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%82%E0%B9%88%E0%B8%B2%E0%B8%A2net-4.jpg" alt="">
+            <img src="https://phuxuan.edu.vn/wp-content/uploads/2023/11/dai-hoc-phu-xuan-2023-mau-do.jpeg" alt="">
         </div>
         <div class="items">
-            <img src="https://cpu-robot.cpu.ac.th/wp-content/uploads/2024/12/1.1.jpg" alt="">
+            <img src="https://equest.vn/wp-content/uploads/2024/04/432271273_444804648105697_7334330496683289317_n.jpg" alt="">
         </div>
         <div class="items">
-            <img src="https://cpu-robot.cpu.ac.th/wp-content/uploads/2024/11/DJI_0053-scaled.jpg" alt="">
+            <img src="https://phuxuan.edu.vn/wp-content/uploads/2023/05/CHAT0103-scaled.jpg" alt="">
         </div>
         <div class="items">
-            <img src="https://cpu-robot.cpu.ac.th/wp-content/uploads/2024/12/DSCF4561-copy.jpg" alt="">
+            <img src="https://nbs.edu.vn/wp-content/uploads/2024/10/1.jpg" alt="">
         </div>
     </div>
     <!-- script slideshow -->
@@ -86,53 +93,66 @@ $username_account = mysqli_fetch_assoc($query);
     </script>
 
 
-    
-    
-        
-    <div class="container-image">
-        <img src="../image/PHU1.jpg" alt="Phu Xuan University">
-        <img src="../image/PHU3.jpg" alt="Phu Xuan University">
+<div class="container-image">
+        <img src="../image/pxu4.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
         <img src="../image/PHU2.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu5.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu6.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu7.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu8.jpg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
+        <img src="../image/pxu1.jpeg" alt="Phu Xuan University">
     </div>
-
-    <div class="news-container" id="news">
-        <!-- กล่องแสดงข่าว -->
-        <div class="news-box">
-            <h2>News</h2>
-            <div class="content">
-                <!-- เพิ่มเนื้อหาข่าวตรงนี้ -->
-                <p>ข่าวสารที่สำคัญจะปรากฏที่นี่</p>
-            </div>
-        </div>
-
-        <!-- กล่องแสดงรางวัล -->
-        <div class="news-box">
-            <h2>Award</h2>
-            <div class="content">
-                <!-- เพิ่มเนื้อหารางวัลตรงนี้ -->
-                <p>รางวัลและความสำเร็จจะปรากฏที่นี่</p>
-            </div>
-        </div>
-    </div>
-
-    
-
 
     <!-- Footer Section -->
     <footer class="footer">
-
-        <!-- Footer Content -->
         <div class="footer-container">
-            <!-- Left Section -->
+            <!-- About Section -->
             <div class="footer-section about">
-                <img src="../image/cpu-Photoroom.png" alt="Logo">
+                <img src="../image/logo-ngang-trang-1.png" alt="Logo">
 
-                <p>Chaopraya University is a higher educational institute committing to high-standard academic services for Nakhon Sawan province and nearby provinces.</p>
+                <p>Phu Xuan University.</p>
+
+                <!-- Contact Info -->
+                <p>
+                    <a href="tel:+842347306888" title="Call Now">
+                        <i class="fas fa-phone-alt"></i> +84 234 7306888
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+84905984286" title="Call Now">
+                        <i class="fas fa-phone-alt"></i> +84 905 984 286
+                    </a>
+                </p>
+                <p>
+                    <a href="https://maps.app.goo.gl/y2hUpzXqpbmUpmi58" target="_blank" title="View on Map">
+                        <i class="fas fa-map-marker-alt"></i> 176 Trần Phú, Phước Vĩnh, TP. Huế
+                    </a>
+                </p>
+                <p>
+                    <a target="_blank" title="Send Email">
+                        <i class="fas fa-envelope"></i> lienhe@pxu.edu.vn
+                    </a>
+                </p>
+
+                <!-- Social Media -->
                 <div class="social-icons">
-                    <a href="#">X</a>
-                    <a href="#">F</a>
-                    <a href="#">I</a>
-                    <a href="#">Y</a>
+                    <a href="https://www.facebook.com/phuxuan.edu.vn" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@truongaihocphuxuan6257" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://phuxuan.edu.vn/" target="_blank" title="Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
                 </div>
             </div>
 
@@ -140,7 +160,7 @@ $username_account = mysqli_fetch_assoc($query);
             <div class="footer-section links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">About us</a></li>
+                    <li><a href="#">About Us</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">News & Articles</a></li>
                     <li><a href="#">Legal Notice</a></li>
@@ -161,17 +181,14 @@ $username_account = mysqli_fetch_assoc($query);
             <!-- School Hours -->
             <div class="footer-section hours">
                 <h4>School Hours</h4>
-                <p>8:00 AM - 4:30 PM , Thursday - Monday</p>
-                <p>Chaopraya University,<br>
-                    13/1 Moo. 6, Nong Krot Subdistrict,<br>
-                    Mueang Nakhon Sawan District,<br>
-                    Nakhon Sawan Province 60240</p>
+                <p>8:00 AM - 4:30 PM, Thursday - Monday</p>
+                <p>Phu Xuan University.</p>
             </div>
         </div>
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>Copyright © 2024 Chaopraya University. All rights reserved.</p>
+            <p>Copyright © 2024 Phu Xuan University. All rights reserved.</p>
         </div>
     </footer>
 

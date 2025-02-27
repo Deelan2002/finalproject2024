@@ -48,6 +48,9 @@ if ($stmt) {
                 case 'student':
                     header("Location: ../ciwe/student/home_student.php");
                     exit();
+                case 'company':
+                    header("Location: ../ciwe/company/home_company.php");
+                    exit();
                 default:
                     $_SESSION['messager'] = 'Invalid user role!';
                     header("Location: ../ciwe/index.php");

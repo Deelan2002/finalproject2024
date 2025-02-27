@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat System</title>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      #chat-box {
+        width: 400px;
+        height: 500px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #messages {
+        flex: 1;
+        overflow-y: scroll;
+      }
+
+      #message-input {
+        width: 100%;
+        height: 50px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat-box">
+      <div id="messages"></div>
+      <textarea id="message-input" placeholder="Type a message..."></textarea>
+      <button id="send-message">Send</button>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        function loadMessages() {
+          $.ajax({
+            url: "../realtime_chat/load_messages.php",
+            method: "GET",
+            success: function (data) {
+              $("#messages").html(data);
+            },
+          });
+        }
+
+        $("#send-message").click(function () {
+          var message = $("#message-input").val();
+          console.log("Sending message: ", message); // เพิ่มบรรทัดนี้เพื่อเช็คในคอนโซล
+          $.ajax({
+            url: "send_message.php",
+            method: "POST",
+            data: {
+              message: message,
+              receiver_id: 2, // เปลี่ยนเป็น ID ของผู้รับตามที่คุณต้องการ
+            },
+            success: function (response) {
+              console.log("Response from send_message.php: ", response); // เช็คข้อมูลที่ตอบกลับ
+              loadMessages();
+              $("#message-input").val("");
+            },
+          });
+        });
+
+        setInterval(loadMessages, 1000); // Refresh messages every second
+      });
+    </script>
+  </body>
+</html>

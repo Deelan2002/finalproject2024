@@ -1,4 +1,4 @@
-/* ตั้งค่าเริ่มต้นสำหรับหน้าเว็บ */
+/* ตั้งค่าเริ่มต้น */
 * {
     margin: 0;
     padding: 0;
@@ -10,82 +10,121 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f3f4f6;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* จัดให้ Sidebar อยู่ซ้าย */
     align-items: flex-start;
-    height: 100vh;
-    padding: 20px;
-}
-
-/* Wrapper */
-.wrapper {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    border-radius: 12px;
 }
 
 /* Sidebar */
 .sidebar {
-    background: linear-gradient(to right, #ff9966, #ff5e62);
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #6d0019, #a52a2a);
+    padding: 20px;
     color: white;
-    width: 250px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: fixed;
-    height: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 30px;
-    color: #ecf0f1;
+    list-style: none; /* ลบจุดออก */
 }
 
 .sidebar ul {
-    list-style-type: none;
+    list-style: none; /* ลบจุดจาก ul */
+    padding: 0;
+    margin: 0;
 }
 
-.sidebar ul li {
-    margin: 20px 0;
+.sidebar li {
+    list-style: none; /* ลบจุดจาก li */
 }
 
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
-    padding: 10px 0;
+.sidebar a {
     display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
 }
 
-.sidebar ul li a:hover {
-    background-color: #34495e; /* สีเทาเข้มเมื่อ hover */
-    padding-left: 20px;
+.sidebar a:hover {
+    color: #ff6347;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
 }
+
 
 /* Container */
 .container {
-    margin-left: 300px;
     padding: 30px;
-    flex: 1;
+    margin-left: 240px; /* เพิ่มระยะห่างจาก Sidebar */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    width: calc(100% - 260px);
+    max-width: 1100px; /* กำหนดขนาดสูงสุดเพื่อไม่ให้กว้างเกินไป */
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
-/* หัวข้อของหน้ารายการนักเรียน */
+/* หัวข้อของหน้า */
 h1 {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 30px;
-    font-size: 36px;
+    margin-bottom: 25px;
+    font-size: 32px;
 }
+
+/* Search Form */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px; /* เพิ่มระยะห่างด้านล่าง */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.search-container form {
+    display: flex;
+    width: 100%; /* ให้ form ขยายเต็มที่ */
+}
+
+.search-container input {
+    flex-grow: 1; /* ให้ input ขยายเต็มที่ */
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-right: none; /* เอาขอบขวาออก */
+    border-radius: 30px 0 0 30px; /* ทำให้มุมซ้ายโค้ง */
+    outline: none;
+    width: 100%; /* ใช้ 100% เพื่อให้เต็มพื้นที่ */
+}
+
+.search-container button {
+    background-color: #a52a2a;
+    border: 2px solid #ccc;
+    border-left: none; /* เอาขอบซ้ายออกให้ติดกัน */
+    border-radius: 0 30px 30px 0; /* ทำให้มุมขวาโค้ง */
+    cursor: pointer;
+    height: 48px;
+    min-width: 50px; /* ป้องกันปุ่มเล็กเกินไป */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.search-container button:hover {
+    background-color: #8b0000;
+    transform: scale(1.05);
+}
+
+.search-container button i {
+    color: white;
+    font-size: 20px;
+}
+
 
 /* การจัดการกับแต่ละการ์ดของนักเรียน */
 .card {
@@ -137,7 +176,7 @@ h1 {
 
 /* ปุ่ม "Details" */
 .action-button {
-    background-color: #FF6600; /* สีส้มสด */
+    background-color: #a52a2a; /* สีส้มสด */
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
@@ -147,7 +186,7 @@ h1 {
 }
 
 .action-button:hover {
-    background-color: #FF7F50; /* สีส้มอ่อนปะการัง */
+    background-color: #800020; /* สีส้มอ่อนปะการัง */
     transform: scale(1.05);
 }
 
@@ -159,38 +198,6 @@ h1 {
     font-weight: bold;
 }
 
-.search-container {
-    display: flex;
-    align-items: center; /* จัดให้อยู่แนวเดียวกันในแนวตั้ง */
-    gap: 8px; /* ระยะห่างระหว่าง input และปุ่ม */
-    margin-bottom: 20px; /* เพิ่มระยะห่างจากองค์ประกอบด้านล่าง */
-    justify-content: center;
-}
 
-.search-container input {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 30px;
-    width: 250px;
-    box-sizing: border-box; /* ป้องกันการขยายเกินขอบ */
-    height: 44px; /* กำหนดความสูงที่สอดคล้องกับปุ่ม */
-}
-
-.search-container button {
-    justify-content: center;
-    align-items: center;
-    background-color: #FF6600;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 44px; /* ความสูงเท่ากับ input */
-    width: 44px; /* ความกว้าง */
-}
-
-.search-container button i {
-    font-size: 18px;
-    color: white;
-}
 
 

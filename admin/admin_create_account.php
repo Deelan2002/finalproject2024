@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role_account = mysqli_real_escape_string($conn, $_POST['role_account']);
 
     // ตรวจสอบว่า role เป็นค่าที่ถูกต้อง
-    if (!in_array($role_account, ['admin', 'advisor', 'student'])) {
+    if (!in_array($role_account, ['admin', 'advisor', 'student','company'])) {
         echo "Invalid role selected!";
         exit();
     }
@@ -46,31 +46,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon.png">
+    <link rel="android-chrome"  href="../image/android-chrome-192x192.png">
+    <link rel="android-chrome"  href="../image/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png">
+    <link rel="manifest" href="../image/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+          /* พื้นหลังโทนสีเลือดหมู */
+          body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ff9966, #ff5e62);
+            background: linear-gradient(to right, #4B000F, #8B1A1A); /* สีเลือดหมูเข้มและอ่อน */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            color: #fff;
         }
 
+        /* กล่องฟอร์ม */
         .container {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.1); /* สีขาวโปร่งใส */
+            backdrop-filter: blur(10px); /* เอฟเฟกต์เบลอพื้นหลัง */
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             max-width: 500px;
-            width: 100%;
+            width: 90%;
             padding: 30px;
             text-align: center;
             animation: fadeIn 1s ease-in-out;
         }
 
+        /* เอฟเฟกต์เฟดอิน */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -82,12 +93,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
+        /* หัวข้อ */
         h2 {
-            color: #ff6600;
+            color:rgb(255, 255, 255); /* สีทอง */
             margin-bottom: 20px;
             font-weight: 600;
         }
 
+        /* กล่องใส่ข้อมูล */
         .form-group {
             margin-bottom: 20px;
             text-align: left;
@@ -97,57 +110,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #555;
+            color: #FFD700; /* สีทอง */
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
             padding: 10px;
-            border: 2px solid #ddd;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
             border-radius: 8px;
             font-size: 14px;
-            transition: border-color 0.3s ease;
+            transition: 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: #ff6600;
+            border-color: #FFD700;
             outline: none;
-            box-shadow: 0 0 6px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
-        .form-group i {
-            position: absolute;
-            margin-left: -30px;
-            margin-top: 14px;
-            color: #888;
-        }
-
+        /* ปุ่ม */
         button {
             width: 100%;
-            background-color: #ff6600;
-            color: #fff;
+            background: #FFD700;
+            color: #4B000F; /* สีเลือดหมูเข้ม */
             font-size: 16px;
             font-weight: 600;
             padding: 12px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
         }
 
         button:hover {
-            background-color: #e65c00;
+            background: #FFC107;
         }
 
+        /* Footer */
         .footer {
             margin-top: 20px;
             font-size: 14px;
         }
 
         .footer a {
-            color: #ff6600;
+            color: #FFD700;
             text-decoration: none;
             font-weight: 600;
         }
@@ -188,6 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="advisor">Advisor</option>
                     <option value="student">Student</option>
                     <option value="admin">Admin</option>
+                    <option value="company">Company</option>
                 </select>
             </div>
 

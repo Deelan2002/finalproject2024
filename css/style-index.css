@@ -12,9 +12,22 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #ffffff 50%, #e07c39 50%); /* สีขาวครึ่งซ้าย และสีส้มครึ่งขวา */
+    background: linear-gradient(135deg, #ffffff 50%, #AF2537 50%); /* สีขาวครึ่งซ้าย และสีส้มครึ่งขวา */
     
 }
+
+.welcome-title {
+    text-align: center;  /* จัดข้อความตรงกลาง */
+    font-size: 30px;    /* ขนาดตัวอักษร */
+    font-weight: bold;   /* ทำให้ตัวหนา */
+    margin-top: 70px;    /* เว้นระยะห่างด้านบน */
+    width: 100%;         /* ทำให้ข้อความอยู่กึ่งกลางเต็มหน้าจอ */
+    position: absolute;  /* ตรึงตำแหน่งด้านบนสุด */
+    top: 10px;           /* เว้นระยะจากขอบบน */
+    left: 50%;           /* จัดให้อยู่กึ่งกลางหน้าจอ */
+    transform: translateX(-50%); /* ปรับให้อยู่ตรงกลาง */
+}
+
 
 @media (max-width: 768px) {
     .login-container {
@@ -37,14 +50,14 @@ body {
 
 /* ส่วนซ้าย */
 .left-panel {
-    background: linear-gradient(135deg, #D35400, #FFA500);
+    background: linear-gradient(135deg, #e03047, #AF2537);
     width: 40%;
     padding: 20px;
     color: white;
 }
 
 .left-panel {
-    background: linear-gradient(135deg, #D35400, #FFA500);
+    background: linear-gradient(135deg, #e03047, #AF2537);
     color: white;
     display: flex;
     flex-direction: column;
@@ -87,9 +100,10 @@ body {
 }
 
 .logo-img {
-    width: 300px;
+    width: 250px;
     margin-bottom: 10px; /* ระยะด้านล่าง */
-    margin-top: -50px; /* ขยับขึ้นด้านบน (ใช้ค่าน้อยๆ) */
+    margin-top: -10px; /* ขยับขึ้นด้านบน (ใช้ค่าน้อยๆ) */
+    border-radius: 10px;
 }
 
 .input-field {
@@ -108,7 +122,7 @@ body {
     display: inline-block;
     width: 100%;
     padding: 10px;
-    background: #FFA500;
+    background: #AF2537;
     color: white;
     font-size: 16px;
     border: none;
@@ -119,7 +133,7 @@ body {
 }
 
 .btn:hover {
-    background: #D35400;
+    background: #e5324a;
 }
 
 /* จัดกล่อง input ให้มีตำแหน่ง relative */

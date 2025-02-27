@@ -1,110 +1,126 @@
 /* Reset styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
 }
 
-header {
-    background: linear-gradient(to right, #ff9966, #ff5e62);
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #800020, #a52a2a);
+  padding: 20px;
+  color: white;
+  position: fixed;
 }
 
-nav {
-    background: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s, transform 0.2s;
 }
 
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    padding: 5px 10px;
-    background-color: #ff6600;
-    border-radius: 5px;
+.sidebar a:hover {
+  color: #ff6347; /* สีแดงอ่อน */
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
-nav a:hover {
-    background-color: #e65c00;
+
+
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  width: 100%;
 }
 
-.container {
-    margin: 20px auto;
-    max-width: 800px;
-    text-align: center;
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-h1 {
-    color: #333;
-}
-
-/* Card styles */
 .card {
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    max-width: 1200px; /* กำหนดความกว้างสูงสุดของ container */
-    margin: 20px auto; /* จัดให้อยู่ตรงกลาง */
-    padding: 50px 20px; /* เพิ่มระยะห่างด้านซ้ายและขวา */
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%; /* เพื่อให้คอนเทนต์ยืดเต็มความกว้างของการ์ด */
-  }
-  
-  .icon-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* ทำให้รูปภาพเป็นวงกลม */
-    object-fit: cover; /* ครอบภาพให้พอดีในวงกลม */
-  }
-  
-  /* Text styles */
-  span {
-    font-size: 18px;
-    color: #333;
-  }
-  
-  /* Button styles */
-  .action-button {
-    margin-left: auto; /* ดันปุ่มไปด้านขวาสุด */
-    background-color: #efb30e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .action-button:hover {
-    background-color: #b1860d;
-    transform: scale(1.05);
-  }
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.action-button {
+  background-color: #efb30e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.action-button:hover {
+  background-color: #b1860d;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .card-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+button {
+  background-color: #ab0a32; /* สีแดงเลือดหมู */
+  color: white; /* สีตัวอักษร */
+  border: none;
+  border-radius: 10px !important; /* มุมปุ่มโค้งมนมากขึ้น */
+  padding: 10px 30px; /* ขนาดปุ่มที่พอเหมาะ */
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* การเปลี่ยนแปลงที่นุ่มนวล */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงาปุ่มที่นุ่ม */
+}
+
+button:hover {
+  background-color: #a52a2a; /* สีแดงที่อ่อนกว่าเมื่อ hover */
+  transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อ hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* เงาที่นุ่มขึ้นตอน hover */
+}
+
+button:focus {
+  outline: none; /* ลบเส้นขอบเมื่อปุ่มถูกเลือก */
+  box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.5); /* เส้นขอบสีนุ่มตอนเลือก */
+}

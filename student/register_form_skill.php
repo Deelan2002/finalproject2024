@@ -18,6 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $id_account = $_SESSION['id_account'];
 
+    // ตรวจสอบว่าเคยกรอกข้อมูลไปแล้วหรือไม่
+    $check_sql = "SELECT * FROM student_profile WHERE id_account = ?";
+    if ($stmt_check = $conn->prepare($check_sql)) {
+        $stmt_check->bind_param("i", $id_account);
+        $stmt_check->execute();
+        $result = $stmt_check->get_result();
+        if ($result->num_rows > 0) {
+            $_SESSION['Messager'] = "You have already registered. Please edit your information instead.";
+            header("Location: ../student/edit_student_skill.php"); // ไปยังหน้าที่ให้แก้ไขข้อมูล
+            exit();
+        }
+    }
+
     // กรองข้อมูลจากฟอร์ม
     $year_level = trim($_POST['year_level']);
     $student_name = htmlspecialchars(trim($_POST['student_name']));
@@ -105,6 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 
+
 <!-- HTML Form -->
 <!DOCTYPE html>
 <html lang="en">
@@ -113,120 +127,173 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon.png">
+    <link rel="android-chrome" href="../image/android-chrome-192x192.png">
+    <link rel="android-chrome" href="../image/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png">
+    <link rel="manifest" href="../image/site.webmanifest">
     <link rel="stylesheet" href="../css/style_register_form_skill.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
     <style>
         body {
-            font-family: 'Lato', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+            background: none;
+            /* ปิดภาพพื้นหลังหลัก */
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .form-container {
-            width: 80%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        label {
-            font-weight: 600;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="email"],
-        textarea {
+        /* สร้างเลเยอร์ภาพพื้นหลัง */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            height: 100%;
+            background-image: url('../image/pxu1.jpeg');
+            /* เปลี่ยนเป็นที่อยู่ของภาพ */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(3px);
+            /* ปรับค่าความเบลอ (px) */
+            z-index: -1;
+            /* ให้ภาพอยู่ด้านหลัง */
         }
 
-        textarea {
-            resize: none;
-            height: 80px;
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            /* ปรับความมืด (0.3 = 30%) */
+            z-index: -1;
         }
 
-        .language-skills {
-            grid-column: span 2;
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: linear-gradient(to bottom, #6d0019, #a52a2a);
+            padding: 20px;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow: hidden;
         }
 
-        .language-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            align-items: center;
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .buttons {
-            grid-column: span 2;
+        .sidebar li {
+            list-style: none;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: background 0.3s, transform 0.2s;
             text-align: center;
         }
 
-        button {
-            padding: 10px 20px;
+        .sidebar a:hover {
+            color: #ff6347;
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        /* Container */
+        .container {
+            padding: 30px;
+            margin-left: 235px;
+            /* ขยับไปทางขวามากขึ้น (จาก 240px เป็น 280px) */
+            margin-top: 20px;
+            width: calc(100% - 260px);
+            max-width: 1300px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        /* สไตล์ปุ่มลอย */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgb(255, 181, 34);
+            color: white;
             border: none;
-            border-radius: 4px;
-            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease-in-out;
         }
 
-        .cancel {
-            background-color: #d9534f;
+        .floating-btn:hover {
+            background-color: rgb(230, 28, 25);
+            transform: scale(1.1);
         }
-
-        .confirm {
-            background-color: #5cb85c;
-        }
-
-        /* จัดตำแหน่ง header ของ labels */
-        .language-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            /* จัดเป็น 4 คอลัมน์ */
-            gap: 10px;
-            /* ระยะห่างระหว่างคอลัมน์ */
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        /* การตกแต่ง label */
-        .skill {
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* จัดเรียง input/select */
-        .language-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            /* 4 คอลัมน์เท่า ๆ กัน */
-            gap: 10px;
-        }
-
-        
     </style>
 </head>
 
 <body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="logo-container" href="../student/home_student.php">
+            <img src="../image/logo-pxu.png" alt="SDIC Logo" width="40" height="40">
+            <span>SDIC</span>
+        </a>
+        <h4>Student Panel</h4>
+        <span class="navbar-text ms-3">
+            Welcome, <?php echo $_SESSION['username_account']; ?>
+        </span>
+        <ul>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/home_student.php">Home</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/profile_student.php">Profile</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/register_form_skill.php">International Cooperative Education</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/student_view_advisor.php">Advisor</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/job_company.php">Company</a></li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/daily.php">Daily</a></li>
+            <li>
+                <a class="nav-link" href="<?php echo $base_url; ?>/realtime_chat/choose_receiver.php?receiver_id=<?php echo isset($_GET['receiver_id']) ? htmlspecialchars($_GET['receiver_id']) : 0; ?>">
+                    Chat
+                </a>
+            </li>
+            <li><a class="nav-link" href="<?php echo $base_url; ?>/student/student_reset_password.php">Reset Password</a></li>
+        <li><a href=" <?php echo $base_url; ?>../index.php" onclick="return confirm('Are you sure you want to log out?');">Logout</a></li>
+        </ul>
+    </div>
+
+
     <div class="form-container">
         <h2>Register for an International Cooperative Education Program</h2>
         <form action="../student/register_form_skill.php" method="POST">
@@ -334,13 +401,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="contact_number" id="contact_number">
 
             <!-- Buttons -->
+            <!-- ปุ่ม Confirm และ Cancel -->
             <div class="buttons">
                 <button type="submit" class="confirm">Confirm</button>
-                <a href="../student/home_student.php" class="btn btn-secondary cancel">Cancel</a>
+                <a href="../student/home_student.php" class="cancel">Cancel</a>
             </div>
+
 
         </form>
     </div>
+    <!-- ปุ่มลอย -->
+    <button class="floating-btn" onclick="addSkill()">
+        <i class="fas fa-pencil-alt"></i>
+    </button>
+
+    <script>
+        function addSkill() {
+            alert("Do you want to edit it?");
+            window.location.href = "../student/edit_student_skill.php";
+            // สามารถเปลี่ยนเป็นเปิดฟอร์มหรือ redirect ไปหน้าที่ต้องการได้
+        }
+    </script>
 </body>
 
 </html>

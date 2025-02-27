@@ -1,109 +1,63 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* Container */
+.container {
+    padding: 30px;
+    margin-left: 235px;
+    /* ขยับไปทางขวามากขึ้น (จาก 240px เป็น 280px) */
+    margin-top: 20px;
+    width: calc(100% - 260px);
+    max-width: 1300px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
-body {
-    background-color: #fff8e6;
-    color: #4d4d4d;
-    padding-top: 80px;
-}
-
-.navbar {
-    background-color: #fcfcfc;
-    /* สีพื้นหลัง */
-    padding: 1rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* เพิ่มเงาใต้ navbar */
-    margin: 0;
-    /* ลบช่องว่างระหว่าง navbar กับขอบหน้าเว็บ */
-    position: fixed !important;
-    top: 0 !important;
-    z-index: 1000 !important;
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #6d0019, #a52a2a);
+    padding: 20px;
+    color: white;
+    position: fixed;
     left: 0;
-    /* ตำแหน่งชิดซ้ายสุด */
-    width: 100%;
-    /* ความกว้างเต็มจอ */
-    z-index: 1000;
-    /* ให้ navbar อยู่เหนือองค์ประกอบอื่น */
+    top: 0;
+    overflow: hidden;
 }
 
-.navbar-brand {
-    color: #000000 !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    /* ลบขีดเส้นใต้ */
-}
-
-/* สไตล์สำหรับ nav-link ปกติ */
-.navbar-nav .nav-link {
-    color: #000000 !important;
-    /* สีข้อความปกติ (ดำ) */
-    text-decoration: none;
-    /* ลบเส้นใต้ */
-    transition: color 0.5s ease-in-out;
-    /* เอฟเฟกต์เปลี่ยนสีนุ่มนวล */
-}
-
-/* เปลี่ยนสีข้อความและลบเส้นใต้เมื่อ hover */
-.navbar-nav .nav-link:hover {
-    color: #ff6969 !important;
-    /* สีชมพูเมื่อ hover (HotPink) */
-    text-decoration: none;
-    /* ยังคงลบเส้นใต้ */
-}
-
-.navbar-text {
-    color: #000000 !important;
-    font-size: 1rem;
-    margin-left: 1rem;
-    font-style: italic;
-}
-
-.navbar-toggler {
-    border-color: #ffffff;
-}
-
-.navbar-toggler-icon {
-    background-color: #ffffff;
-    /* สีของ icon toggle */
-}
-
-.navbar-toggler:hover .navbar-toggler-icon {
-    background-color: #adb5bd;
-    /* สีเมื่อ hover */
-}
-
-/* ลบจุดจากรายการและขีดเส้นใต้ */
-.navbar-nav {
-    list-style-type: none;
-    /* ลบจุด */
+.sidebar ul {
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.navbar-nav .nav-item {
-    margin-left: 10px;
-    /* ระยะห่างจากขอบด้านซ้าย */
-    margin-right: 10px;
-    /* ระยะห่างจากขอบด้านขวา */
+.sidebar li {
+    list-style: none;
 }
 
-.navbar-nav .nav-item:last-child {
-    margin-right: 0;
-    /* ไม่ให้ปุ่มสุดท้ายมีระยะห่าง */
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
 }
 
-
+.sidebar a:hover {
+    color: #ff6347;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
 
 /* Card Styles */
 .card {
     max-width: 1140px;
-    margin: 0 auto;
+    margin: 30px auto;
     background: #ffffff;
     border: none;
     border-radius: 10px;
@@ -141,6 +95,33 @@ body {
 .card img:hover {
     transform: scale(1.05); /* ขยายขนาดรูปภาพเล็กน้อยเมื่อ hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงารอบๆ รูปภาพ */
+}
+
+.btnA {
+    margin: 0px 0px 20px 0px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* ไล่เฉดสีส้ม-ชมพู */
+    color: white;
+    font-size: 0.5rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btnA:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ff9a9e); /* สีเปลี่ยนเมื่อ hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btnA:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 
